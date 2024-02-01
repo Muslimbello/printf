@@ -1,4 +1,9 @@
 #include "main.h" // My custom main header file
+/**
+ * _printf - Printf function
+ * @format: format.
+ * Return: Printed chars.
+ */
 
 int _printf(const char *format, ...)
 {
