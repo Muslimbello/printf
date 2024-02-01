@@ -10,9 +10,10 @@
 int gen_specifier(const char *format, va_list list_args)
 {
 	int num_char = 0;
+
 	while (*format)
 	{
-		if (*format != '%') // Checks if its the % chracter
+		if (*format != '%')
 		{
 			write(1, format, 1);
 			num_char++;
@@ -21,19 +22,23 @@ int gen_specifier(const char *format, va_list list_args)
 		else
 		{
 
-			format++; // if the compiler reach this state it means it ennum_charer a % then i want to move to the next character to it which will be our specifier
-			// if (*format == '\0') // check if its the end
-			// 	break;
+			format++;
 
-			if (*format == 'c' || *format == 's' || *format == '%' || *format == 'd' || *format == 'i' || *format == 'b')
+			if (*format == 'c' || *format == 's' ||
+				*format == '%' || *format == 'd' ||
+				*format == 'i' || *format == 'b')
 			{
-				num_char += specifiers_1(format, list_args);
+				num_char += specifier(format, list_args);
 			}
-			else if (*format == 'u' || *format == 'o' || *format == 'x' || *format == 'X')
+			else if (*format == 'u' ||
+					 *format == 'o' ||
+					 *format == 'x' ||
+					 *format == 'X')
 			{
-				num_char += specifier_2(format, list_args);
+				num_char += advanced_specifier(format, list_args);
 			}
 			format++;
 		}
 	}
+	return (num_char);
 }

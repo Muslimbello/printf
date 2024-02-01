@@ -159,8 +159,8 @@ int print_hexupper(va_list list_args)
 }
 
 /**
- * advanced_specifier - Process format specifiers and print corresponding values
- *
+ * advanced_specifier - Process format specifiers
+ * and print corresponding values
  * @format: The format string containing the specifier
  * @list_args: A va_list of arguments based on the specifier
  *

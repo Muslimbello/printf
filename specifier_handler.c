@@ -2,13 +2,13 @@
 
 /**
  * print_character - print character
- * @: argument pointer
+ * @list_args: argument pointer
  * Return: 1
  */
 
-int print_character(va_list)
+int print_character(va_list list_args)
 {
-	int ch = (char)va_arg(, int);
+	int ch = (char)va_arg(list_args, int);
 
 	my_putchar(ch);
 
@@ -17,16 +17,16 @@ int print_character(va_list)
 
 /**
  * print_string - print string
- * @: argument pointer
+ * @list_args: argument pointer
  * Return: 1
  */
 
-int print_string(va_list)
+int print_string(va_list list_args)
 {
 	int i = 0;
 	char *s;
 
-	s = va_arg(, char *);
+	s = va_arg(list_args, char *);
 
 	if (s == NULL)
 	{
@@ -80,14 +80,13 @@ int print_decint(va_list arg)
 
 /**
  * print_binary - convert decimal to binary. Base 10 to Base 2
- * @: argument pointer
+ * @list_args: argument pointer
  * Description: reverse the modulo on recursive division
  * Return: length of the binary number
  */
-
-int print_binary(va_list)
+int print_binary(va_list list_args)
 {
-	unsigned int n = va_arg(, int), binary[1024];
+	unsigned int n = va_arg(list_args, int), binary[1024];
 
 	int i = 0, j = 0;
 
@@ -113,22 +112,20 @@ int print_binary(va_list)
  * specifier - Process format specifiers and print corresponding values
  *
  * @format: The format string containing the specifier
- * @...: Additional arguments based on the specifier
- *
+ * @list_args: Additional arguments based on the specifier
  * Return: The number of characters printed
  */
-
 int specifier(const char *format, va_list list_args)
 {
 	int count = 0;
 
 	if (*format == 'c')
 	{
-		count += print_character();
+		count += print_character(list_args);
 	}
 	else if (*format == 's')
 	{
-		count += print_string();
+		count += print_string(list_args);
 	}
 	else if (*format == '%')
 	{
@@ -136,11 +133,11 @@ int specifier(const char *format, va_list list_args)
 	}
 	else if (*format == 'd' || *format == 'i')
 	{
-		count += print_decint();
+		count += print_decint(list_args);
 	}
 	else if (*format == 'b')
 	{
-		count += print_binary();
+		count += print_binary(list_args);
 	}
 
 	return (count);

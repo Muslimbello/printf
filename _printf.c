@@ -1,4 +1,4 @@
-#include "main.h" // My custom main header file
+#include "main.h"
 /**
  * _printf - Printf function
  * @format: parameter for the printf function
@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 	int num_char = 0;
 	va_list list_args;
 
-	if (format == NULL) // checks if the printf is empty
+	if (format == NULL)
 		return (-1);
 
 	va_start(list_args, format);
@@ -17,13 +17,3 @@ int _printf(const char *format, ...)
 	va_end(list_args);
 	return (num_char);
 }
-
-// int main()
-// {
-// 	_printf("at%c\n", 't');
-// 	_printf("cat\n");
-// 	_printf("%%\n");
-// 	_printf("%s\n", "dog");
-
-// 	return 0;
-// }
