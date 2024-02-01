@@ -16,17 +16,17 @@ int _printf(const char *format, ...)
 	va_start(list_args, format);
 	while (*format)
 	{
-		if (*format != '%') // Checks if its the % chracter
+		if (*format != '%') // Checks if no special character present
 		{
 			write(1, format, 1);
 			num_char++;
 		}
 
-		else
+		else // if there is a special character 
 		{
 
-			format++;			 // if the compiler reach this state it means it encounter a % then i want to move to the next character to it which will be our specifier
-			if (*format == '\0') // check if its the end
+			format++; // moves to the string specifier after the % 
+			if (*format == '\0')
 				break;
 
 			if (*format == 'c') // checks for single chracter using the c specifier
