@@ -37,8 +37,8 @@ int gen_specifier(const char *format, va_list list_args)
 			{
 				num_char += advanced_specifier(format, list_args);
 			}
-			format++;
 		}
+		format++;
 	}
 	return (num_char);
 }
